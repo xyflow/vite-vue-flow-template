@@ -23,14 +23,15 @@ const counter = ref(0);
   min-width: 100px;
   gap: 4px;
   padding: 8px;
-  background: white;
-  border: 1px solid black;
+  color: var(--xy-node-color, var(--xy-node-color-default));
+  background: var(--xy-node-background-color, var(--xy-node-background-color-default));
+  border: var(--xy-node-border, var(--xy-node-border-default));
   border-radius: 4px;
 }
 
 .increment {
   border-radius: 4px;
-  background: #42b983;
+  background: #08754b;
   font-size: 10px;
   color: #fff;
   cursor: pointer;
@@ -52,8 +53,8 @@ const counter = ref(0);
 
 .count {
   font-size: 6px;
-  color: #ff0072;
-  border: 1px solid rgba(0, 0, 0, 0.3);
+  color: inherit;
+  border: var(--xy-node-border, var(--xy-node-border-default));
   border-radius: 8px;
 }
 </style>
