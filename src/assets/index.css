@@ -1,11 +1,4 @@
-/* import the required styles */
-@import "@vue-flow/core/dist/style.css";
-
-/* import the default theme (optional) */
-@import "@vue-flow/core/dist/theme-default.css";
-
-@import "@vue-flow/controls/dist/style.css";
-@import "@vue-flow/minimap/dist/style.css";
+@import "@xyflow/vue/style.css";
 
 body {
   color: #111;
@@ -28,3 +21,4 @@ body,
   margin: 0;
   height: 100%;
 }
+

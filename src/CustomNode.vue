@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { Handle, Position } from "@vue-flow/core";
+import { Handle, Position } from "@xyflow/vue";
 import { ref } from "vue";
 
 const counter = ref(0);

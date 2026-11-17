@@ -1,12 +1,12 @@
 <script lang="ts" setup>
 import { computed } from "vue";
-import type { EdgeProps } from "@vue-flow/core";
+import type { EdgeProps } from "@xyflow/vue";
 import {
   BaseEdge,
   EdgeLabelRenderer,
   getBezierPath,
   useVueFlow,
-} from "@vue-flow/core";
+} from "@xyflow/vue";
 
 const props = defineProps<EdgeProps>();
 

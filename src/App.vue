@@ -1,54 +1,43 @@
-<
 <script lang="ts" setup>
-import { h, ref } from "vue";
-import { Background } from "@vue-flow/background";
-import { Controls } from "@vue-flow/controls";
-import { MiniMap } from "@vue-flow/minimap";
-import { VueFlow, useVueFlow, type Node, type Edge } from "@vue-flow/core";
-import CustomNode from "./CustomNode.vue";
-import CustomEdge from "./CustomEdge.vue";
+import { shallowRef } from 'vue'
+import { addEdge, Background, Controls, MiniMap, VueFlow, type Connection, type Edge, type Node } from '@xyflow/vue'
+import CustomNode from './CustomNode.vue'
+import CustomEdge from './CustomEdge.vue'
 
-const { onConnect, addEdges } = useVueFlow();
+const nodes = shallowRef<Node[]>([
+  { id: '1', type: 'input', data: { label: 'Node 1' }, position: { x: 250, y: 5 } },
+  { id: '2', type: 'output', data: { label: 'Node 2' }, position: { x: 100, y: 100 } },
+  { id: '3', type: 'custom', data: { label: 'Node 3' }, position: { x: 400, y: 100 } },
+])
 
-const nodes = ref<Node[]>([
-  { id: "1", type: "input", label: "Node 1", position: { x: 250, y: 5 } },
-  { id: "2", type: "output", label: "Node 2", position: { x: 100, y: 100 } },
-  { id: "3", type: "custom", label: "Node 3", position: { x: 400, y: 100 } },
-]);
+const edges = shallowRef<Edge[]>([
+  { id: 'e1-2', source: '1', target: '2', type: 'custom' },
+  { id: 'e1-3', source: '1', target: '3', animated: true },
+])
 
-const edges = ref<Edge[]>([
-  { id: "e1-2", source: "1", target: "2", type: "custom" },
-  { id: "e1-3", source: "1", target: "3", animated: true },
-]);
-
-onConnect((params) => {
-  addEdges([params]);
-});
+function onConnect(connection: Connection) {
+  edges.value = addEdge(connection, edges.value)
+}
 </script>
 
 <template>
   <VueFlow
     v-model:nodes="nodes"
     v-model:edges="edges"
-    fit-view-on-init
+    fit-view
     class="vue-flow-basic-example"
-    :default-zoom="1.5"
     :min-zoom="0.2"
     :max-zoom="4"
+    @connect="onConnect"
   >
-    <Background pattern-color="#aaa" :gap="8" />
-
+    <Background color="#aaa" :gap="8" />
     <MiniMap />
-
     <Controls />
-
     <template #node-custom="nodeProps">
       <CustomNode v-bind="nodeProps" />
     </template>
-
     <template #edge-custom="edgeProps">
       <CustomEdge v-bind="edgeProps" />
     </template>
   </VueFlow>
 </template>
->

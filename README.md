@@ -10,15 +10,15 @@ Install the dependencies:
 pnpm install
 ```
 
-Start the Vite development server:
+Use Node.js 20.19+ or 22.12+ and pnpm. Start the Vite development server:
 
 ```bash
-pnpm start
+pnpm dev
 ```
 
 Changes you make to the code will be reflected in the browser while the server is running. To create a production build, run `pnpm build`.
 
-The starter includes Vue 3, TypeScript, Vue Flow, Vite, and ESLint dependencies. It also includes examples of a custom node and a custom edge.
+The starter includes Vue 3, TypeScript, Vue Flow, Vite, and Oxlint. Run `pnpm lint` to check the code and `pnpm preview` to preview a production build. It also includes examples of a custom node and a custom edge.
 
 ## Things to try
 
